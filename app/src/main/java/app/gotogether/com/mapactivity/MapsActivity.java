@@ -14,13 +14,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -34,7 +38,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends AppCompatActivity {
     private static final String TAG = "MapsActivity";
-    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =1 ;
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =1;
     AlertDialog.Builder builder;
     SupportMapFragment mapFragment;
     GoogleMap map;
@@ -45,8 +49,8 @@ public class MapsActivity extends AppCompatActivity {
     private LocationListener listener;
 
     MarkerOptions myLocationMarker;
-
-
+    MarkerOptions friendMarker1;
+    MarkerOptions friendMarker2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -241,6 +245,7 @@ public class MapsActivity extends AppCompatActivity {
                         @Override
                         public void onLocationChanged(Location location) {
                             showCurrentLocation(location);
+                            addPictures(location);
                         }
 
                         @Override
@@ -276,6 +281,7 @@ public class MapsActivity extends AppCompatActivity {
                         @Override
                         public void onLocationChanged(Location location) {
                             showCurrentLocation(location);
+                            addPictures(location);
                         }
 
                         @Override
@@ -307,6 +313,7 @@ public class MapsActivity extends AppCompatActivity {
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15));
 
         showMyLocationMarker(location);
+        addPictures(location);
     }
 
     private void showMyLocationMarker(Location location) {
@@ -322,6 +329,33 @@ public class MapsActivity extends AppCompatActivity {
         }
         latitude = location.getLatitude();
         longitude = location.getLongitude();
+    }
+
+    private void addPictures(Location location) {
+        int pictureResId = R.mipmap.ic_start;
+
+        if (friendMarker1 == null) {
+            friendMarker1 = new MarkerOptions();
+            friendMarker1.position(new LatLng(37.396912, 127.126074));
+            friendMarker1.title("친구 1\n");
+            friendMarker1.icon(BitmapDescriptorFactory.fromResource(pictureResId));
+            map.addMarker(friendMarker1);
+        } else {
+            friendMarker1.position(new LatLng(location.getLatitude()+3000, location.getLongitude()+3000));
+        }
+
+        pictureResId = R.mipmap.ic_end;
+
+        if (friendMarker2 == null) {
+            friendMarker2 = new MarkerOptions();
+            friendMarker2.position(new LatLng(37.396802, 127.122814));
+            friendMarker2.title("친구 2\n");
+            friendMarker2.icon(BitmapDescriptorFactory.fromResource(pictureResId));
+            map.addMarker(friendMarker2);
+        } else {
+            friendMarker2.position(new LatLng(location.getLatitude()+2000, location.getLongitude()-1000));
+        }
+
     }
 
 
