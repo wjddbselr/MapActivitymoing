@@ -111,7 +111,7 @@ public class MapsActivity extends AppCompatActivity {
                         value = et.getText().toString();
                         Log.v(TAG, value);
 
-                        dialog.dismiss();     //닫기
+                        dialog.dismiss();
                         // Event
                     }
                 });
