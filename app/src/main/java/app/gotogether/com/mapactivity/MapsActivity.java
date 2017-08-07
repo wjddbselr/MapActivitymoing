@@ -124,8 +124,6 @@ public class MapsActivity extends AppCompatActivity {
 
         }
 
-
-
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
