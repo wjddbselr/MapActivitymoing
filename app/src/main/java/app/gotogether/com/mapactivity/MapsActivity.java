@@ -349,30 +349,31 @@ public class MapsActivity extends AppCompatActivity {
         int pictureResId = R.mipmap.ic_start;
 
         if (friendMarker1 == null) {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+                JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+                for(int i=0;i<jsonArray.length();i++) {
+
+                    JSONObject item = jsonArray.getJSONObject(i);
+                    String id = "ys";
+                    String name = "yeseul";
+
+                    String longitude3 = Double.toString(37.396912);
+                    String latitude3 = Double.toString(127.126074);
+
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    hashMap.put(TAG_ID,id);
+                    hashMap.put(TAG_NAME, name);
+                    hashMap.put(TAG_LONG, String.valueOf(longitude3));
+                    hashMap.put(TAG_LATI, String.valueOf(latitude3));
+                    mArrayList.add(hashMap);
+            }
             friendMarker1 = new MarkerOptions();
             friendMarker1.position(new LatLng(37.396912, 127.126074));
             friendMarker1.title("친구 1\n");
             friendMarker1.icon(BitmapDescriptorFactory.fromResource(pictureResId));
             map.addMarker(friendMarker1);
-            JSONObject jsonObject = new JSONObject(mJsonString);
-            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
-            for(int i=0;i<jsonArray.length();i++) {
-
-                JSONObject item = jsonArray.getJSONObject(i);
-                String id = "sy";
-                String name = "soyeon";
-
-                String longitude3 = Double.toString(37.396912);
-                String latitude3 = Double.toString(127.126074);
-
-                HashMap<String, String> hashMap = new HashMap<>();
-                hashMap.put(TAG_ID,id);
-                hashMap.put(TAG_NAME, name);
-                hashMap.put(TAG_LONG, String.valueOf(longitude3));
-                hashMap.put(TAG_LATI, String.valueOf(latitude3));
-                mArrayList.add(hashMap);
-            }
 
 
         } else {
@@ -382,8 +383,27 @@ public class MapsActivity extends AppCompatActivity {
         pictureResId = R.mipmap.ic_end;
 
         if (friendMarker2 == null) {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+            for(int i=0;i<jsonArray.length();i++) {
+
+                JSONObject item = jsonArray.getJSONObject(i);
+                String id = "sy";
+                String name = "soyeon";
+
+                String longitude4 = Double.toString(37.504913);
+                String latitude4 = Double.toString(127.036690);
+
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put(TAG_ID, id);
+                hashMap.put(TAG_NAME, name);
+                hashMap.put(TAG_LONG, String.valueOf(longitude4));
+                hashMap.put(TAG_LATI, String.valueOf(latitude4));
+                mArrayList.add(hashMap);
+            }
             friendMarker2 = new MarkerOptions();
-            friendMarker2.position(new LatLng(37.396802, 127.122814));
+            friendMarker2.position(new LatLng(37.504913, 127.036690));
             friendMarker2.title("친구 2\n");
             friendMarker2.icon(BitmapDescriptorFactory.fromResource(pictureResId));
             map.addMarker(friendMarker2);

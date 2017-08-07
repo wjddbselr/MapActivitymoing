@@ -461,7 +461,7 @@ public class BossPage extends AppCompatActivity {
             String plan = (String)params[1];
             int groupId = 123;
 
-            String serverURL = "http://211.253.9.84/schedule.php";
+            String serverURL = "http://211.253.9.84/insertschedule.php";
             String postParameters = "groupId=" + groupId + "&date=" + date + "&plan=" + plan;
 
 
