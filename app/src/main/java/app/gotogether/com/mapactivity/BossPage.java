@@ -134,6 +134,7 @@ public class BossPage extends AppCompatActivity {
         task2.execute("http://211.253.9.84/getmemberlist.php");
 
         // 리스너 설정
+        // 캘린더 버튼 누르면
         monthView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -256,7 +257,6 @@ public class BossPage extends AppCompatActivity {
                 builder.setTitle("일정추가");
 
                 View view = (View) getLayoutInflater().inflate(R.layout.activity_datetimepicker, null);
-                edit = (EditText)view.findViewById(R.id.editText2);
 
                 // 서버
                 mTextViewResult = (TextView)findViewById(R.id.result_text); // 성공하면 insert
@@ -264,10 +264,14 @@ public class BossPage extends AppCompatActivity {
                 builder.setPositiveButton("추가", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         startYear = dpStartDate.getYear();
                         startMonth = dpStartDate.getMonth() + 1;
                         startDay = dpStartDate.getDayOfMonth();
+
+                        edit = (EditText)((AlertDialog)dialog).findViewById(R.id.editText2);
                         content = edit.getText().toString(); // 일정내용
+
                         String y = String.valueOf(startYear);
                         String m = String.valueOf(startMonth);
                         String d = String.valueOf(startDay);
@@ -278,11 +282,10 @@ public class BossPage extends AppCompatActivity {
                         // 일정을 리스트뷰에 추가
                         //dayData.add(new DayData(startYear, startMonth, startDay, content));
 
-
                         String date = y + m + d;
 
                         InsertData task = new InsertData();
-                        task.execute(date, "하");
+                        task.execute(date, content);
 
                         // 후에 추가하면 동그라미 버튼 나타나게 or 색이 바뀌게
                         dialog.dismiss();
@@ -916,14 +919,3 @@ public class BossPage extends AppCompatActivity {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
