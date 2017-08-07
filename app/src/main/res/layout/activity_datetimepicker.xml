@@ -19,4 +19,5 @@
         android:hint="일정 내용"
         android:inputType="textPersonName" />
 
+
 </LinearLayout>

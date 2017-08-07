@@ -60,7 +60,7 @@ public class Navigation extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //add this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.main_view);
+        //displaySelectedScreen(R.id.main_view);
     }
 
     @Override

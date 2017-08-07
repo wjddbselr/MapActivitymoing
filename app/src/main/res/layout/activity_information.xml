@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="app.gotogether.com.mapactivity.information">
+    tools:context="app.gotogether.com.mapactivity.BossPage">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="상세정보" />
+        android:text="팀원리스트트" />
 
     <ListView
-        android:id="@+id/listView2"
+        android:id="@+id/team_listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 </LinearLayout>
