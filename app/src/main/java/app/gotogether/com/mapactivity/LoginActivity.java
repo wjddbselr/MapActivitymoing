@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText et_id, et_pw;
     String sId, sPw;
-
+    final static int SUB_ACTIVITY_CODE = 100; // 상수로 선언
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,16 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+public void onClick(View v)
+{
+    switch (v.getId())
+    {
+        case R.id.register:
+            Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+            startActivity(intent);
+            break;
+    }
+}
     public void bt_Login(View v) {
         try{
             sId = et_id.getText().toString();
@@ -127,7 +136,6 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-
             if(data.equals("1"))
             {
                 Log.e("RESULT","성공적으로 로그인되었습니다!");
@@ -138,9 +146,11 @@ public class LoginActivity extends AppCompatActivity {
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
+                                Intent intent = new Intent(LoginActivity.this, MyActivity.class);
+                                intent.putExtra("sId", sId);
+                                intent.putExtra("sPw", sPw);
+                                startActivityForResult(intent, SUB_ACTIVITY_CODE);
+
                             }
                         });
                 AlertDialog dialog = alertBuilder.create();

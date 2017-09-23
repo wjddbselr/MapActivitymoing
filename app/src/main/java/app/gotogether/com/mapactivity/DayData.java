@@ -8,19 +8,20 @@ public class DayData {
 	
 	private int hour;
 	private int min;
-	private String txt =null;
+	private String txt;
 	
 	public DayData(){
 		init();
 	}
 	
-	public DayData(int Y, int M, int D, String C){
+	public DayData(int Y, int M, int D, String content){
 		itYear = Y;
 		itMonth = M;
 		itDay = D;
-		content = C;
+		this.content = content;
+		init();
 	}
-
+	
 	
 	public void init(){
 		hour = 0;
@@ -51,13 +52,7 @@ public class DayData {
 	public int getDay(){
 		return itDay;
 	}
-
-	public void setContent(String C){
-		content = C;
-	}
-	public String getContent(){
-		return content;
-	}
+	
 	public void setString(String T){
 		txt = T;
 	}
@@ -68,7 +63,6 @@ public class DayData {
 	}
 	
 	public String getString(){
-		txt = Integer.valueOf(getYear()).toString() + Integer.valueOf(getMonth()).toString() + Integer.valueOf(getDay()).toString();
 		return txt;
 	}
 	

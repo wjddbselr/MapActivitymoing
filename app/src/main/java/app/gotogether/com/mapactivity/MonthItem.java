@@ -10,6 +10,7 @@ public class MonthItem {
 
 	private int dayValue;
 
+	// 생성자
 	public MonthItem() {
 		
 	}

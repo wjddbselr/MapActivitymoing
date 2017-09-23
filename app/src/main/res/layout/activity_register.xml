@@ -5,66 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="app.gotogether.com.mapactivity.RegisterActivity">
+    tools:context="app.gotogether.com.mapactivity.RegisterActivity"
+    android:weightSum="1">
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Id"
-        android:id="@+id/id" />
-
-    <EditText
+        android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_Id" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:id="@+id/pw" />
+        android:layout_weight="1.21"
+        android:gravity="center_horizontal|center"
+        android:text="회원가입"
+        android:textSize="30sp" />
 
     <EditText
+        android:id="@+id/et_Id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_Password" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:id="@+id/name" />
+        android:hint="ID" />
 
     <EditText
+        android:id="@+id/et_Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_Name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone"
-        android:id="@+id/phone" />
+        android:hint="PASSWORD" />
 
     <EditText
+        android:id="@+id/et_Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_Phone" />
+        android:hint="NAME" />
+
+    <EditText
+        android:id="@+id/et_Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PHONE" />
 
     <Button
-        android:text="Join"
+        android:id="@+id/bt_Join"
         android:layout_width="100dp"
         android:layout_height="48dp"
-        android:id="@+id/bt_Join"
+        android:layout_gravity="center"
+        android:background="@color/purple_color"
         android:clickable="true"
         android:onClick="bt_Join"
+        android:text="JOIN US"
         android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="349dp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="197dp"
         android:id="@+id/tv_result" />
 
 

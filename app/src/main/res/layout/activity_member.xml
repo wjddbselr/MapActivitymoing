@@ -11,10 +11,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="팀원리스트트" />
+        android:text="팀원리스트" />
 
     <ListView
-        android:id="@+id/team_listView"
+        android:id="@+id/member_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />

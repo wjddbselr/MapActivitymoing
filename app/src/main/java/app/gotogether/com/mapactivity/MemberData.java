@@ -1,10 +1,10 @@
 package app.gotogether.com.mapactivity;
 
 /**
- * Created by user on 2017-08-16.
+ * Created by so yeon on 2017-09-18.
  */
 
-public class MyData {
+public class MemberData {
 
     // 이렇게 값을 담는 클래스를 VO 또는 DTO 라고 부른다.
     // 원본 데이터를 담음
@@ -12,12 +12,14 @@ public class MyData {
 
     private String _id;
     private String name;
+    private String phone;
     //alt + insert : 게터 세터 생성, 생성자 생성
 
 
-    public MyData(String _id, String name) {
+    public MemberData(String _id, String name, String phone) {
         this._id = _id;
         this.name = name;
+        this.phone = phone;
     }
 
     public String get_id() {
@@ -34,6 +36,14 @@ public class MyData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 
