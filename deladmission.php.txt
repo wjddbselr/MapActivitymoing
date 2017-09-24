@@ -1,0 +1,33 @@
+//그룹회장이 가입을 거부한 사람에 해당
+<?php
+$connect = mysql_connect("localhost", "root", "rhxnrpej") or
+	die("SQL server에 연결할 수 없습니다.");
+
+mysql_query("SET NAMES UTF8");
+
+//데이터베이스선택
+
+mysql_select db("register", $connect);
+
+session_start();
+
+$json_string = $_POST[json];
+
+// parse to php array
+$data = json_decode($json_string, true);
+
+foreach ($data as $user) {
+    $id = $user;
+    $group_id = $user['group_id'];
+
+ 
+$sql = "delete from admission where id = '$id' and group_id='$group_id';
+$result = mysql_query($sql);
+
+if(!$result)
+	die("mysql query error");
+else
+	echo "delete success"
+}
+
+?>

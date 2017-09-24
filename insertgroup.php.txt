@@ -1,0 +1,39 @@
+<?php
+
+
+$link=mysqli_connect("localhost","root","rhxnrpej", "register" );
+if (!$link)
+{
+    echo "MySQL 접속 에러 : ";
+    echo mysqli_connect_error();
+    exit();
+}
+
+mysqli_set_charset($link,"utf8");
+
+//POST 값을 읽어온다.
+$group_name=$_POST[group_name];
+
+$sql = "insert into grouplist(name) values('$group_name')";
+
+$result = mysqli_query($sql);
+
+$sql2="select * from grouplist where name = '$group_name'";
+
+$result2=mysqli_query($sql2);
+
+
+$row=mysqli_fetch_array($result2)
+$row[0] = $group_id;
+}
+$id=$_POST[id];
+$name=$_POST[name];
+$phone=$_POST[phone];
+
+
+   $sql3 = "insert into memberlist(group_id, id, name, position, phone) values('$group_id', '$id', '$name', '1', '$phone')";
+
+   $result3 = mysqli_query($sql3);
+
+
+?>

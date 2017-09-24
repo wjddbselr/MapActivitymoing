@@ -1,0 +1,32 @@
+<?php
+$connect = mysql_connect( "localhost", "root", "rhxnrpej") or
+
+        die( "SQL server에 연결할 수 없습니다.");
+
+    mysql_query("SET NAMES UTF8");
+
+   // 데이터베이스 선택
+
+   mysql_select_db("register",$connect);
+
+
+
+   // 세션 시작
+
+   session_start();
+
+//POST 값을 읽어온다.
+$group_id=$_POST[group_id];
+$name=$_POST[name];
+
+$sql = "update grouplist set name ='$name' where id ='$group_id'";
+
+$result = mysql_query($sql);
+
+
+if(!$result)
+        die ("mysql query error");
+else
+        echo "insert success"
+
+?>
